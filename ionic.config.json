@@ -1,0 +1,7 @@
+{
+  "name": "Trackpack",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
