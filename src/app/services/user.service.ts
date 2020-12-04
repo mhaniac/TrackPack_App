@@ -9,7 +9,8 @@ import { URL } from './globals';
 })
 export class UserService {
   
-  public user = { name: '', lastName: '' }
+  public user = { name: '', lastName: '' };
+  public location = { lat:0 ,lng: 0 }
 
   constructor(private http: HttpClient, private loginService: LoginService, private router: Router) {
     this.getUserProfile();
