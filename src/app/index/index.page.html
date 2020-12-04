@@ -1,0 +1,19 @@
+
+<ion-content>
+<div class="container">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bienvenido {{ userService.user.name }} {{ userService.user.lastName }}</ion-card-title>
+    </ion-card-header>
+    <ion-img src="../assets/package.svg"></ion-img>
+    <ion-card-content>
+      Aqui podras escanear el codigo QR generado en la guia para poder registrar su ubicacion
+    </ion-card-content>
+
+    <ion-button (click)="startScanner()" expand="block" color="tertiary" shape="round">
+      <ion-icon name="scan-outline" class="ion-margin-horizontal"></ion-icon>Iniciar Scanner
+    </ion-button>
+
+  </ion-card>
+</div>
+</ion-content>
