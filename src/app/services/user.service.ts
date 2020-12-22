@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { URL } from './globals';
+import { TrackingService } from '../services/tracking.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,9 @@ export class UserService {
   public user = { name: '', lastName: '' };
   public location = { lat:0 ,lng: 0 }
 
-  constructor(private http: HttpClient, private loginService: LoginService, private router: Router) {
+  constructor(private http: HttpClient, private loginService: LoginService, private router: Router, private trackingService: TrackingService) {
     this.getUserProfile();
+    this.getUSerLocation();
   }
 
   getUserProfile(){
@@ -26,6 +28,14 @@ export class UserService {
         resolve(this.user);
       });
     });
+  }
+
+  getUSerLocation(){
+      this.trackingService.getCurrentLocation().then((resp: any) => {
+        this.location = resp;
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
   }
 
 }

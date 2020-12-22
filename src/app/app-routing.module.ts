@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'index',
     loadChildren: () => import('./index/index.module').then( m => m.IndexPageModule)
+  },
+  {
+    path: 'received',
+    loadChildren: () => import('./received/received.module').then( m => m.ReceivedPageModule)
   }
 ];
 @NgModule({

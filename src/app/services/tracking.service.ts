@@ -16,11 +16,28 @@ export class TrackingService {
         token: this.loginService.getToken()
       });
       this.http.post(`${URL}/tracking/updateLocation`, { idCarga, lat, lng }, { headers }).subscribe((res: any) => {
+        console.log(res);
         resolve(res.message);
       }, (err: any) => {
-        reject(err.error.error);
+        console.log(err);
+        reject(err.error);
       })
     });
+  }
+ 
+  markAsDelivered(idCarga: number){
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({
+        token: this.loginService.getToken()
+      })
+      this.http.put(`${URL}/tracking/delivered`, { idCarga }, { headers }).subscribe((res: any) => {
+        console.log(res);
+        resolve(res.message);
+      }, (err: any) => {
+        console.log(err);
+        reject(err.error.error);
+      })
+    })
   }
 
 getCurrentLocation(){

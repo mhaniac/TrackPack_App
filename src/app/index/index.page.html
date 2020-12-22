@@ -1,20 +1,33 @@
+<ion-content [fullscreen]="true" class="waves" color="light">
+    <ion-content>
+        <ion-fab vertical="bottom" horizontal="end">
+            <ion-fab-button>
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-list side="start">
+                <ion-fab-button class="background-primary" href="/received">
+                    <ion-icon name="checkmark-circle-outline" color="tertiary"></ion-icon>
+                </ion-fab-button>
+                <ion-fab-button (click)="loginService.logout()">
+                    <ion-icon name="log-out-outline" color="danger"></ion-icon>
+                </ion-fab-button>
+            </ion-fab-list>
+        </ion-fab>
+        <div class="container">
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>Bienvenido {{ userService.user.name }} {{ userService.user.lastName }}</ion-card-title>
+                </ion-card-header>
+                <ion-img src="../assets/package.svg"></ion-img>
+                <ion-card-content>
+                    Aqui podras escanear el codigo QR generado en la guia para poder registrar su ubicacion.
+                    <strong>Tus coordenadas son : lat: {{ userService.location.lat }}, lng: {{ userService.location.lng }}</strong>
+                </ion-card-content>
 
-<ion-content>
-<div class="container">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Bienvenido {{ userService.user.name }} {{ userService.user.lastName }}</ion-card-title>
-    </ion-card-header>
-    <ion-img src="../assets/package.svg"></ion-img>
-    <ion-card-content>
-      Aqui podras escanear el codigo QR generado en la guia para poder registrar su ubicacion.
-      <strong>Tus coordenadas son : lat: {{ userService.location.lat }}, lng: {{ userService.location.lng }}</strong>
-    </ion-card-content>
+                <ion-button (click)="startScanner()" expand="block" color="tertiary" shape="round">
+                    <ion-icon name="scan-outline" class="ion-margin-horizontal"></ion-icon>Iniciar Scanner
+                </ion-button>
 
-    <ion-button (click)="startScanner()" expand="block" color="tertiary" shape="round">
-      <ion-icon name="scan-outline" class="ion-margin-horizontal"></ion-icon>Iniciar Scanner
-    </ion-button>
-
-  </ion-card>
-</div>
-</ion-content>
+            </ion-card>
+        </div>
+    </ion-content>

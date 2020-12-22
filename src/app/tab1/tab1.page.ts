@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { LoginService } from '../services/login.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-tab1',
@@ -13,7 +14,7 @@ export class Tab1Page {
 
   formGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService, public alertController: AlertController, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, public alertController: AlertController, private router: Router, private userService: UserService) {
     this.createForm()
   }
 
@@ -24,6 +25,8 @@ export class Tab1Page {
       const user = { userLogin, passwd };
       this.loginService.login(user).subscribe((res: any) => {
         this.loginService.setToken(res.token);
+        this.formGroup.reset();
+        this.userService.getUSerLocation();
         this.router.navigateByUrl('/index');
       }, (err: any) => {
         console.log(err);

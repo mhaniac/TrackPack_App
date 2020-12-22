@@ -1,27 +1,23 @@
-
-<ion-content [fullscreen]="true" class="waves" color="light">
-
-  <div class="container">
+<ion-content>
+<div class="container">
     <ion-card class="ion-padding">
-      <ion-card-header>
-        <ion-card-title class="ion-text-center" color="tertiary">Inicio de Sesión</ion-card-title>
-      </ion-card-header>
-      <ion-img src="../assets/login.svg"></ion-img>    
-      <form [formGroup]="formGroup" (submit)="onSubmit()">
-        <ion-item>
-          <ion-label position="floating">Nombre de Usuario</ion-label>
-          <ion-input [formControlName]="'userLogin'"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input [formControlName]="'passwd'" type="password"></ion-input>
-        </ion-item>
-        <ion-button (click)="onSubmit()" expand="block" shape="round" color="tertiary" class="ion-margin-top">
-          Ingresar
-        </ion-button>
-      </form>
+        <ion-card-header>
+            <ion-card-title class="ion-text-center" color="tertiary">Inicio de Sesión</ion-card-title>
+        </ion-card-header>
+        <ion-img src="../assets/login.svg"></ion-img>
+        <form [formGroup]="formGroup" (submit)="onSubmit()">
+            <ion-item>
+                <ion-label position="floating">Nombre de Usuario</ion-label>
+                <ion-input [formControlName]="'userLogin'"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Contraseña</ion-label>
+                <ion-input [formControlName]="'passwd'" type="password"></ion-input>
+            </ion-item>
+            <ion-button (click)="onSubmit()" expand="block" shape="round" color="tertiary" class="ion-margin-top">
+                Ingresar
+            </ion-button>
+        </form>
     </ion-card>
-  </div>
-
-
+</div>
 </ion-content>
